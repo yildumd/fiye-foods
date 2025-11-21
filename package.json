@@ -8,10 +8,19 @@
     "build": "echo 'Build complete'",
     "test": "echo 'No tests specified'"
   },
-  "keywords": ["restaurant", "food", "abuja", "delivery"],
+  "keywords": [
+    "restaurant",
+    "food",
+    "abuja",
+    "delivery"
+  ],
   "author": "Fiye Foods",
   "license": "MIT",
   "devDependencies": {
     "live-server": "^1.2.2"
+  },
+  "dependencies": {
+    "open": "^11.0.0",
+    "uuid": "^13.0.0"
   }
 }
