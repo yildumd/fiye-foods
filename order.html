@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Retail Products | Fiye Foods - Premium Southern Nigerian Ingredients</title>
+    <meta name="description" content="Order Fiye Foods retail products online. Premium Yaji, Garri, Palm Oil, Chili Pepper, and authentic Southern Nigerian ingredients delivered in Abuja.">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <div class="logo-img"></div>
+                    <span class="logo-text">Fiye Foods</span>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="order.html" class="active">Order Retail</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="order.html" class="btn btn-primary">Order Now</a>
+                    <div class="mobile-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Order Hero -->
+    <section class="order-hero">
+        <div class="container">
+            <div class="order-hero-content">
+                <h1>Order Retail Products</h1>
+                <p class="hero-subtitle">Premium Southern Nigerian ingredients delivered to your door in Abuja</p>
+                <div class="order-highlights">
+                    <div class="highlight">
+                        <i class="fas fa-shipping-fast"></i>
+                        <span>Same-day Delivery</span>
+                    </div>
+                    <div class="highlight">
+                        <i class="fas fa-award"></i>
+                        <span>Premium Quality</span>
+                    </div>
+                    <div class="highlight">
+                        <i class="fas fa-store"></i>
+                        <span>Authentic Ingredients</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Retail Products Section -->
+    <section class="retail-products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Retail Products</h2>
+                <p>Premium ingredients for authentic Southern Nigerian cooking at home</p>
+            </div>
+
+            <div class="products-grid" id="retail-products">
+                <!-- Products will be loaded dynamically -->
+            </div>
+
+            <div class="ordering-info">
+                <div class="info-card">
+                    <i class="fas fa-info-circle"></i>
+                    <h4>How to Order</h4>
+                    <p>Browse our retail products, add items to your cart, and proceed to checkout. We'll contact you to confirm your order and arrange delivery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shopping Cart -->
+    <section class="shopping-cart-section">
+        <div class="container">
+            <div class="cart-container">
+                <div class="cart-header">
+                    <h3><i class="fas fa-shopping-cart"></i> Your Order</h3>
+                    <button class="btn-clear" id="clear-cart">Clear All</button>
+                </div>
+                
+                <div class="cart-items" id="cart-items">
+                    <!-- Cart items will appear here -->
+                    <div class="empty-cart" id="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <p>Your cart is empty</p>
+                        <p class="small">Add some retail products to get started</p>
+                    </div>
+                </div>
+
+                <div class="cart-summary" id="cart-summary" style="display: none;">
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="cart-subtotal">₦0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Delivery Fee:</span>
+                        <span id="delivery-fee">₦0</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="cart-total">₦0</span>
+                    </div>
+                    
+                    <div class="delivery-note">
+                        <p><i class="fas fa-shipping-fast"></i> Free delivery on orders above ₦5,000 within Abuja</p>
+                    </div>
+                </div>
+
+                <div class="cart-actions">
+                    <button class="btn btn-primary btn-full" id="checkout-btn" disabled>
+                        <i class="fab fa-whatsapp"></i> Proceed to WhatsApp Checkout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Delivery Information -->
+    <section class="delivery-info-section">
+        <div class="container">
+            <h2>Delivery Information</h2>
+            <div class="delivery-grid">
+                <div class="delivery-card">
+                    <div class="delivery-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h4>Delivery Areas</h4>
+                    <p>We deliver across Abuja including:</p>
+                    <ul>
+                        <li>Utako & Surrounding Areas</li>
+                        <li>Wuse</li>
+                        <li>Garki</li>
+                        <li>Maitama</li>
+                        <li>Asokoro</li>
+                        <li>Gwarinpa</li>
+                    </ul>
+                </div>
+
+                <div class="delivery-card">
+                    <div class="delivery-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h4>Delivery Times</h4>
+                    <p><strong>Same-day delivery</strong> for orders placed before 3:00 PM</p>
+                    <p><strong>Next-day delivery</strong> for orders after 3:00 PM</p>
+                    <div class="delivery-hours">
+                        <p><strong>Delivery Hours:</strong> 9:00 AM - 7:00 PM</p>
+                    </div>
+                </div>
+
+                <div class="delivery-card">
+                    <div class="delivery-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h4>Delivery Fees</h4>
+                    <div class="fee-structure">
+                        <div class="fee-item">
+                            <span>Orders under ₦5,000</span>
+                            <span class="fee-amount">₦1,000</span>
+                        </div>
+                        <div class="fee-item">
+                            <span>Orders ₦5,000 - ₦10,000</span>
+                            <span class="fee-amount">₦500</span>
+                        </div>
+                        <div class="fee-item">
+                            <span>Orders over ₦10,000</span>
+                            <span class="fee-amount free">FREE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Methods -->
+    <section class="payment-section">
+        <div class="container">
+            <h2>Payment Methods</h2>
+            <div class="payment-methods">
+                <div class="payment-method">
+                    <div class="payment-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h4>Cash on Delivery</h4>
+                    <p>Pay when your order is delivered</p>
+                </div>
+
+                <div class="payment-method">
+                    <div class="payment-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h4>Bank Transfer</h4>
+                    <p>Transfer to our bank account</p>
+                </div>
+
+                <div class="payment-method">
+                    <div class="payment-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h4>WhatsApp Payment</h4>
+                    <p>Confirm order via WhatsApp and pay</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="order-faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>How long does delivery take?</h4>
+                    <p>Orders placed before 3:00 PM are delivered same day. Orders after 3:00 PM are delivered the next day. Delivery typically takes 2-4 hours during business hours.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>What is your minimum order?</h4>
+                    <p>We have a minimum order of ₦2,500 for delivery to ensure efficient service.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Can I modify my order after placing it?</h4>
+                    <p>Yes, you can modify your order if we haven't started processing it. Please contact us immediately at 0805 726 6953.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Do you deliver outside Abuja?</h4>
+                    <p>Currently, we only deliver within Abuja and surrounding areas. Contact us for special arrangements.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>What if I'm not available for delivery?</h4>
+                    <p>Please provide alternative delivery instructions or a safe place to leave your package. We'll contact you before delivery.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Are your products fresh?</h4>
+                    <p>Yes! All our retail products are sourced fresh and packaged to maintain quality. We guarantee freshness on delivery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Fiye Foods</h3>
+                    <p>Authentic Southern Nigerian Cuisine</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/fiyefoods_" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="order.html">Order Retail</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> 0805 726 6953</li>
+                        <li><i class="fas fa-envelope"></i> hello@fiye-foods.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Shop G2B, Say Plaza, Opp Utako Market, Abuja</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>QR Menu</h4>
+                    <p>Scan to view our menu</p>
+                    <div class="qr-placeholder">
+                        <div class="qr-code"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Fiye Foods. All rights reserved. | Authentic Southern Nigerian Cuisine</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/2348057266953?text=Hello%20Fiye%20Foods!%20I%20have%20a%20question%20about%20your%20retail%20products." 
+       class="whatsapp-order-btn" 
+       target="_blank"
+       title="Ask about Retail Products">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="js/script.js"></script>
+    <script src="js/order.js"></script>
+</body>
+</html>

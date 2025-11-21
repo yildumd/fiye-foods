@@ -1,0 +1,50 @@
+// Gallery filtering functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    // Filter gallery items
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            const filterValue = this.getAttribute('data-filter');
+            
+            // Filter items
+            galleryItems.forEach(item => {
+                if (filterValue === 'all') {
+                    item.style.display = 'block';
+                } else {
+                    const itemCategories = item.getAttribute('data-category').split(' ');
+                    if (itemCategories.includes(filterValue)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                }
+            });
+
+            // Smooth scroll to gallery
+            document.querySelector('.main-gallery').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    });
+
+    // Add click animation to gallery items
+    galleryItems.forEach(item => {
+        item.addEventListener('click', function() {
+            this.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 150);
+        });
+    });
+
+    console.log('Fiye Foods Gallery initialized');
+});

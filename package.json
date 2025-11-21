@@ -1,0 +1,17 @@
+{
+  "name": "fiye-foods",
+  "version": "1.0.0",
+  "description": "Premium Abuja restaurant website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "live-server --port=3000",
+    "build": "echo 'Build complete'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": ["restaurant", "food", "abuja", "delivery"],
+  "author": "Fiye Foods",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

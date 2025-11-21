@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Placeholder Images</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .image-container { display: inline-block; margin: 10px; text-align: center; }
+        canvas { border: 1px solid #ccc; margin: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Generate Placeholder Images for Fiye Foods</h1>
+    <div id="images"></div>
+    
+    <script>
+        const images = [
+            { name: 'hero-bg', width: 1200, height: 600, text: 'Fiye Foods Hero' },
+            { name: 'food-1', width: 400, height: 300, text: 'Jollof Rice' },
+            { name: 'food-2', width: 400, height: 300, text: 'Bole & Fish' },
+            { name: 'food-3', width: 400, height: 300, text: 'Pepper Soup' },
+            { name: 'restaurant-1', width: 400, height: 300, text: 'Restaurant' },
+            { name: 'restaurant-2', width: 400, height: 300, text: 'Dining Area' },
+            { name: 'events-1', width: 400, height: 300, text: 'Event Setup' },
+            { name: 'events-2', width: 400, height: 300, text: 'Catering' },
+            { name: 'team', width: 400, height: 300, text: 'Our Team' }
+        ];
+
+        function createImage(imageSpec) {
+            const canvas = document.createElement('canvas');
+            canvas.width = imageSpec.width;
+            canvas.height = imageSpec.height;
+            const ctx = canvas.getContext('2d');
+            
+            // Background gradient
+            const gradient = ctx.createLinearGradient(0, 0, imageSpec.width, imageSpec.height);
+            gradient.addColorStop(0, '#E63946');
+            gradient.addColorStop(1, '#1D3557');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, imageSpec.width, imageSpec.height);
+            
+            // Text
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 24px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(imageSpec.text, imageSpec.width/2, imageSpec.height/2);
+            
+            // Add to page
+            const container = document.createElement('div');
+            container.className = 'image-container';
+            container.innerHTML = `
+                <div>${imageSpec.name}.jpg (${imageSpec.width}x${imageSpec.height})</div>
+                <canvas id="${imageSpec.name}"></canvas>
+                <div>
+                    <button onclick="downloadImage('${imageSpec.name}')">Download</button>
+                </div>
+            `;
+            document.getElementById('images').appendChild(container);
+            
+            // Draw on the displayed canvas
+            const displayCtx = container.querySelector('canvas').getContext('2d');
+            displayCtx.drawImage(canvas, 0, 0);
+            
+            return canvas;
+        }
+
+        function downloadImage(imageName) {
+            const canvas = document.getElementById(imageName);
+            const link = document.createElement('a');
+            link.download = `${imageName}.jpg`;
+            link.href = canvas.toDataURL('image/jpeg', 0.8);
+            link.click();
+        }
+
+        // Generate all images
+        images.forEach(spec => {
+            createImage(spec);
+        });
+
+        console.log('Placeholder images ready. Click "Download" for each image and save in images/placeholder/ folder');
+    </script>
+</body>
+</html>
