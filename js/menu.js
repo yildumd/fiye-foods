@@ -1,6 +1,7 @@
 // Fiye Foods Menu Data
 const menuData = {
     categories: [
+        { id: 'specials', name: "Today's Special", description: 'Daily featured dishes and exclusive offers' },
         { id: 'rice-meals', name: 'Rice Meals', description: 'Premium rice dishes with authentic Abuja flavours' },
         { id: 'combos', name: 'Online Exclusive Combos', description: 'Special combos available for online orders only' },
         { id: 'proteins', name: 'Proteins', description: 'Add extra proteins to your meals' },
@@ -12,105 +13,175 @@ const menuData = {
         { id: 'weekend', name: 'Weekend Specials', description: 'Exclusive weekend offerings' }
     ],
     items: {
+        'specials': [
+            // Will be populated dynamically based on day of week
+        ],
         'rice-meals': [
-            { name: 'Fiye Party Jollof + Beef + Water', description: 'Our signature jollof rice with beef and bottled water', price: 3500 },
-            { name: 'Basmati Stir-Fried Rice', description: 'Premium basmati rice stir-fried with vegetables and spices', price: 4500 },
-            { name: 'White Rice & Stew + Beef + Water', description: 'White rice with rich stew, beef, and bottled water', price: 3500 },
-            { name: 'Asun Rice', description: 'Spicy grilled goat meat with seasoned rice', price: 4500 },
-            { name: 'Buka Combo', description: 'Rice, beans, stew, plantain with beef - complete traditional meal', price: 6500 },
-            { name: 'Assorted Pepper Soup + Rice', description: 'Mixed meat pepper soup served with rice', price: 6500 },
-            { name: 'Goat Meat Pepper Soup + Rice', description: 'Spicy goat meat pepper soup served with rice', price: 6500 }
+            { name: 'Fiye Party Jollof + Beef + Water', description: 'Our signature jollof rice with beef and bottled water', price: 3500, image: 'food-1.jpg' },
+            { name: 'Basmati Stir-Fried Rice', description: 'Premium basmati rice stir-fried with vegetables and spices', price: 4500, image: 'food-2.jpg' },
+            { name: 'White Rice & Stew + Beef + Water', description: 'White rice with rich stew, beef, and bottled water', price: 3500, image: 'food-3.jpg' },
+            { name: 'Asun Rice', description: 'Spicy grilled goat meat with seasoned rice', price: 4500, image: 'food-1.jpg' },
+            { name: 'Buka Combo', description: 'Rice, beans, stew, plantain with beef - complete traditional meal', price: 6500, image: 'food-2.jpg' },
+            { name: 'Assorted Pepper Soup + Rice', description: 'Mixed meat pepper soup served with rice', price: 6500, image: 'food-3.jpg' },
+            { name: 'Goat Meat Pepper Soup + Rice', description: 'Spicy goat meat pepper soup served with rice', price: 6500, image: 'food-1.jpg' }
         ],
         'combos': [
-            { name: 'Office Combo Pack', description: 'Rice + Protein + Plantain + Water/Drink - Perfect for lunch', price: 3000 },
-            { name: 'Executive Combo Box', description: 'Soup + Swallow + Extra Protein - Premium dining experience', price: 5500 },
-            { name: 'Family Sharing Pack', description: 'Large Rice + 6 Proteins + Plantain - Feeds the whole family', price: 10000 },
-            { name: 'Pepper Soup Combo', description: 'Goat/Assorted pepper soup / Catfish + 1 Swallow or Rice or Agidi + Zobo or Water/Drink', price: 7000 }
+            { name: 'Office Combo Pack', description: 'Rice + Protein + Plantain + Water/Drink - Perfect for lunch', price: 3000, image: 'food-2.jpg' },
+            { name: 'Executive Combo Box', description: 'Soup + Swallow + Extra Protein - Premium dining experience', price: 5500, image: 'food-3.jpg' },
+            { name: 'Family Sharing Pack', description: 'Large Rice + 6 Proteins + Plantain - Feeds the whole family', price: 10000, image: 'food-1.jpg' },
+            { name: 'Pepper Soup Combo', description: 'Goat/Assorted pepper soup / Catfish + 1 Swallow or Rice or Agidi + Zobo or Water/Drink', price: 7000, image: 'food-2.jpg' }
         ],
         'proteins': [
-            { name: 'Beef', description: 'Tender beef pieces', price: 500 },
-            { name: 'Chicken (Regular)', description: 'Juicy chicken portion', price: 2500 },
-            { name: 'Chicken (Large)', description: 'Large chicken portion', price: 5000 },
-            { name: 'Turkey (Regular)', description: 'Premium turkey meat', price: 3500 },
-            { name: 'Turkey (Large)', description: 'Large turkey portion', price: 7000 },
-            { name: 'Goat Meat', description: 'Tender goat meat', price: 2500 },
-            { name: 'Titus Fish', description: 'Grilled Titus fish', price: 2500 },
-            { name: 'Pomo', description: 'Cow skin delicacy', price: 1000 },
-            { name: 'Cowtail', description: 'Premium cowtail', price: 4000 },
-            { name: 'Panla', description: 'Dried fish', price: 2000 },
-            { name: 'Croaker', description: 'Fresh croaker fish', price: 4000 },
-            { name: 'Snail', description: 'Fresh snail delicacy', price: 5000 },
-            { name: 'Egg', description: 'Boiled or fried egg', price: 500 }
+            { name: 'Beef', description: 'Tender beef pieces', price: 500, image: 'food-3.jpg' },
+            { name: 'Chicken (Regular)', description: 'Juicy chicken portion', price: 2500, image: 'food-1.jpg' },
+            { name: 'Chicken (Large)', description: 'Large chicken portion', price: 5000, image: 'food-2.jpg' },
+            { name: 'Turkey (Regular)', description: 'Premium turkey meat', price: 3500, image: 'food-3.jpg' },
+            { name: 'Turkey (Large)', description: 'Large turkey portion', price: 7000, image: 'food-1.jpg' },
+            { name: 'Goat Meat', description: 'Tender goat meat', price: 2500, image: 'food-2.jpg' },
+            { name: 'Titus Fish', description: 'Grilled Titus fish', price: 2500, image: 'food-3.jpg' },
+            { name: 'Pomo', description: 'Cow skin delicacy', price: 1000, image: 'food-1.jpg' },
+            { name: 'Cowtail', description: 'Premium cowtail', price: 4000, image: 'food-2.jpg' },
+            { name: 'Panla', description: 'Dried fish', price: 2000, image: 'food-3.jpg' },
+            { name: 'Croaker', description: 'Fresh croaker fish', price: 4000, image: 'food-1.jpg' },
+            { name: 'Snail', description: 'Fresh snail delicacy', price: 5000, image: 'food-2.jpg' },
+            { name: 'Egg', description: 'Boiled or fried egg', price: 500, image: 'food-3.jpg' }
         ],
         'soups': [
-            { name: 'Afang Soup (Small)', description: '2.4L - Traditional Afang soup', price: 3500 },
-            { name: 'Afang Soup (Medium)', description: '3.4L - Traditional Afang soup', price: 25000 },
-            { name: 'Afang Soup (Large)', description: 'Family size Afang soup', price: 40000 },
-            { name: 'Egusi Soup (Small)', description: '2.4L - Melon seed soup', price: 3500 },
-            { name: 'Egusi Soup (Medium)', description: '3.4L - Melon seed soup', price: 25000 },
-            { name: 'Egusi Soup (Large)', description: 'Family size Egusi soup', price: 40000 },
-            { name: 'Ogbono Soup (Small)', description: '2.4L - African mango seed soup', price: 3500 },
-            { name: 'Ogbono Soup (Medium)', description: '3.4L - African mango seed soup', price: 25000 },
-            { name: 'Ogbono Soup (Large)', description: 'Family size Ogbono soup', price: 40000 },
-            { name: 'Vegetable Soup (Small)', description: '2.4L - Fresh vegetable soup', price: 3500 },
-            { name: 'Vegetable Soup (Medium)', description: '3.4L - Fresh vegetable soup', price: 25000 },
-            { name: 'Vegetable Soup (Large)', description: 'Family size Vegetable soup', price: 40000 },
-            { name: 'Oha Soup (Small)', description: '2.4L - Traditional Oha soup', price: 3500 },
-            { name: 'Oha Soup (Medium)', description: '3.4L - Traditional Oha soup', price: 25000 },
-            { name: 'Oha Soup (Large)', description: 'Family size Oha soup', price: 40000 },
-            { name: 'Bitterleaf Soup (Small)', description: '2.4L - Bitterleaf soup', price: 3500 },
-            { name: 'Bitterleaf Soup (Medium)', description: '3.4L - Bitterleaf soup', price: 25000 },
-            { name: 'Bitterleaf Soup (Large)', description: 'Family size Bitterleaf soup', price: 40000 },
-            { name: 'Banga Soup (Small)', description: '2.4L - Palm fruit soup', price: 8500 },
-            { name: 'Banga Soup (Medium)', description: '3.4L - Palm fruit soup', price: 35000 },
-            { name: 'Banga Soup (Large)', description: 'Family size Banga soup', price: 50000 },
-            { name: 'Stew (Medium)', description: '3.4L - Nigerian tomato stew', price: 25000 },
-            { name: 'Stew (Large)', description: 'Family size Nigerian tomato stew', price: 40000 }
+            { name: 'Afang Soup (Small)', description: '2.4L - Traditional Afang soup', price: 3500, image: 'food-1.jpg' },
+            { name: 'Afang Soup (Medium)', description: '3.4L - Traditional Afang soup', price: 25000, image: 'food-2.jpg' },
+            { name: 'Afang Soup (Large)', description: 'Family size Afang soup', price: 40000, image: 'food-3.jpg' },
+            { name: 'Egusi Soup (Small)', description: '2.4L - Melon seed soup', price: 3500, image: 'food-1.jpg' },
+            { name: 'Egusi Soup (Medium)', description: '3.4L - Melon seed soup', price: 25000, image: 'food-2.jpg' },
+            { name: 'Egusi Soup (Large)', description: 'Family size Egusi soup', price: 40000, image: 'food-3.jpg' },
+            { name: 'Ogbono Soup (Small)', description: '2.4L - African mango seed soup', price: 3500, image: 'food-1.jpg' },
+            { name: 'Ogbono Soup (Medium)', description: '3.4L - African mango seed soup', price: 25000, image: 'food-2.jpg' },
+            { name: 'Ogbono Soup (Large)', description: 'Family size Ogbono soup', price: 40000, image: 'food-3.jpg' },
+            { name: 'Vegetable Soup (Small)', description: '2.4L - Fresh vegetable soup', price: 3500, image: 'food-1.jpg' },
+            { name: 'Vegetable Soup (Medium)', description: '3.4L - Fresh vegetable soup', price: 25000, image: 'food-2.jpg' },
+            { name: 'Vegetable Soup (Large)', description: 'Family size Vegetable soup', price: 40000, image: 'food-3.jpg' },
+            { name: 'Oha Soup (Small)', description: '2.4L - Traditional Oha soup', price: 3500, image: 'food-1.jpg' },
+            { name: 'Oha Soup (Medium)', description: '3.4L - Traditional Oha soup', price: 25000, image: 'food-2.jpg' },
+            { name: 'Oha Soup (Large)', description: 'Family size Oha soup', price: 40000, image: 'food-3.jpg' },
+            { name: 'Bitterleaf Soup (Small)', description: '2.4L - Bitterleaf soup', price: 3500, image: 'food-1.jpg' },
+            { name: 'Bitterleaf Soup (Medium)', description: '3.4L - Bitterleaf soup', price: 25000, image: 'food-2.jpg' },
+            { name: 'Bitterleaf Soup (Large)', description: 'Family size Bitterleaf soup', price: 40000, image: 'food-3.jpg' },
+            { name: 'Banga Soup (Small)', description: '2.4L - Palm fruit soup', price: 8500, image: 'food-1.jpg' },
+            { name: 'Banga Soup (Medium)', description: '3.4L - Palm fruit soup', price: 35000, image: 'food-2.jpg' },
+            { name: 'Banga Soup (Large)', description: 'Family size Banga soup', price: 50000, image: 'food-3.jpg' },
+            { name: 'Stew (Medium)', description: '3.4L - Nigerian tomato stew', price: 25000, image: 'food-1.jpg' },
+            { name: 'Stew (Large)', description: 'Family size Nigerian tomato stew', price: 40000, image: 'food-2.jpg' }
         ],
         'swallows': [
-            { name: 'Semo', description: 'Smooth semolina swallow', price: 1000 },
-            { name: 'Eba', description: 'Garri swallow', price: 500 },
-            { name: 'Fufu', description: 'Cassava fufu', price: 500 },
-            { name: 'Poundo', description: 'Pounded yam flour', price: 1500 },
-            { name: 'Oatmeal Swallow', description: 'Healthy oatmeal swallow', price: 1500 }
+            { name: 'Semo', description: 'Smooth semolina swallow', price: 1000, image: 'food-3.jpg' },
+            { name: 'Eba', description: 'Garri swallow', price: 500, image: 'food-1.jpg' },
+            { name: 'Fufu', description: 'Cassava fufu', price: 500, image: 'food-2.jpg' },
+            { name: 'Poundo', description: 'Pounded yam flour', price: 1500, image: 'food-3.jpg' },
+            { name: 'Oatmeal Swallow', description: 'Healthy oatmeal swallow', price: 1500, image: 'food-1.jpg' }
         ],
         'sides': [
-            { name: 'Crispy Yam Stripes + Egg Sauce', description: 'Crispy yam strips with creamy egg sauce', price: 4500 },
-            { name: 'Plantain Slices + Scrambled Egg', description: 'Fried plantain with scrambled eggs', price: 3500 },
-            { name: 'Fiye Plantain/Yam & Egg Box', description: 'Special plantain or yam with egg combo', price: 5500 },
-            { name: 'Moi Moi (per piece)', description: 'Steamed bean pudding', price: 1000 },
-            { name: 'Peppered Gizzard (4 pieces)', description: 'Spicy peppered gizzard', price: 3000 },
-            { name: 'Chicken Wings (6 pieces)', description: 'Crispy chicken wings', price: 4000 },
-            { name: 'Plantain', description: 'Fried plantain', price: 1000 }
+            { name: 'Crispy Yam Stripes + Egg Sauce', description: 'Crispy yam strips with creamy egg sauce', price: 4500, image: 'food-2.jpg' },
+            { name: 'Plantain Slices + Scrambled Egg', description: 'Fried plantain with scrambled eggs', price: 3500, image: 'food-3.jpg' },
+            { name: 'Fiye Plantain/Yam & Egg Box', description: 'Special plantain or yam with egg combo', price: 5500, image: 'food-1.jpg' },
+            { name: 'Moi Moi (per piece)', description: 'Steamed bean pudding', price: 1000, image: 'food-2.jpg' },
+            { name: 'Peppered Gizzard (4 pieces)', description: 'Spicy peppered gizzard', price: 3000, image: 'food-3.jpg' },
+            { name: 'Chicken Wings (6 pieces)', description: 'Crispy chicken wings', price: 4000, image: 'food-1.jpg' },
+            { name: 'Plantain', description: 'Fried plantain', price: 1000, image: 'food-2.jpg' }
         ],
         'grills': [
-            { name: 'Turkey', description: 'Grilled turkey', price: 3500 },
-            { name: 'Plantain (per piece)', description: 'Grilled plantain', price: 500 },
-            { name: 'Yam (per piece)', description: 'Grilled yam', price: 500 },
-            { name: 'Kote Fish (per piece)', description: 'Grilled Kote fish', price: 2500 },
-            { name: 'Chicken', description: 'Grilled chicken', price: 2500 },
-            { name: 'Titus Fish (per piece)', description: 'Grilled Titus fish', price: 2500 },
-            { name: 'Bole & Fish Combo', description: '2 Plantain and full fish - Wednesday special', price: 8999 }
+            { name: 'Turkey', description: 'Grilled turkey', price: 3500, image: 'food-3.jpg' },
+            { name: 'Plantain (per piece)', description: 'Grilled plantain', price: 500, image: 'food-1.jpg' },
+            { name: 'Yam (per piece)', description: 'Grilled yam', price: 500, image: 'food-2.jpg' },
+            { name: 'Kote Fish (per piece)', description: 'Grilled Kote fish', price: 2500, image: 'food-3.jpg' },
+            { name: 'Chicken', description: 'Grilled chicken', price: 2500, image: 'food-1.jpg' },
+            { name: 'Titus Fish (per piece)', description: 'Grilled Titus fish', price: 2500, image: 'food-2.jpg' },
+            { name: 'Bole & Fish Combo', description: '2 Plantain and full fish - Wednesday special', price: 8999, image: 'food-3.jpg' }
         ],
         'retail': [
-            { name: 'Fiye Chili Pepper', description: 'Premium chili pepper', price: 2500 },
-            { name: 'Fiye Cameroonian Pepper', description: 'Special Cameroonian pepper', price: 2500 },
-            { name: 'Yellow Garri (1kg)', description: 'Premium yellow garri', price: 2000 },
-            { name: 'Ijebu Garri (1kg)', description: 'Traditional Ijebu garri', price: 3000 },
-            { name: 'Yellow Garri (2kg)', description: 'Premium yellow garri', price: 4000 },
-            { name: 'Ijebu Garri (2kg)', description: 'Traditional Ijebu garri', price: 6000 },
-            { name: 'Palm Oil (1 litre)', description: 'Pure palm oil', price: 5000 },
-            { name: 'Palm Oil (5 litres)', description: 'Pure palm oil - family size', price: 18500 },
-            { name: 'Kuli Kuli', description: 'Groundnut snack', price: 1500 },
-            { name: 'Fiye Yaji (3 Variants)', description: 'Special suya spice in 3 variants', price: 2500 }
+            { name: 'Fiye Chili Pepper', description: 'Premium chili pepper', price: 2500, image: 'food-1.jpg' },
+            { name: 'Fiye Cameroonian Pepper', description: 'Special Cameroonian pepper', price: 2500, image: 'food-2.jpg' },
+            { name: 'Yellow Garri (1kg)', description: 'Premium yellow garri', price: 2000, image: 'food-3.jpg' },
+            { name: 'Ijebu Garri (1kg)', description: 'Traditional Ijebu garri', price: 3000, image: 'food-1.jpg' },
+            { name: 'Yellow Garri (2kg)', description: 'Premium yellow garri', price: 4000, image: 'food-2.jpg' },
+            { name: 'Ijebu Garri (2kg)', description: 'Traditional Ijebu garri', price: 6000, image: 'food-3.jpg' },
+            { name: 'Palm Oil (1 litre)', description: 'Pure palm oil', price: 5000, image: 'food-1.jpg' },
+            { name: 'Palm Oil (5 litres)', description: 'Pure palm oil - family size', price: 18500, image: 'food-2.jpg' },
+            { name: 'Kuli Kuli', description: 'Groundnut snack', price: 1500, image: 'food-3.jpg' },
+            { name: 'Fiye Yaji (3 Variants)', description: 'Special suya spice in 3 variants', price: 2500, image: 'food-1.jpg' }
         ],
         'weekend': [
-            { name: 'Friday Special: SeaFood Rice', description: 'Creamy Coconut Rice served with Turkey, Chicken or Fish, Calamari, prawns, Fish chunks', price: 9999 },
-            { name: 'Friday Special: Pasta Stir-Fry', description: 'Special pasta stir-fry', price: 5499 },
-            { name: 'Saturday Special: Fisherman Soup', description: 'Rich fisherman soup with assorted seafood', price: 14999 },
-            { name: 'Saturday Special: Ekpang Nkukwo', description: 'Traditional cocoyam dish', price: 8499 },
-            { name: 'Weekend Bonus: White Soup (Fri & Sat)', description: 'Special white soup available Friday and Saturday', price: 8500 }
+            { name: 'Friday Special: SeaFood Rice', description: 'Creamy Coconut Rice served with Turkey, Chicken or Fish, Calamari, prawns, Fish chunks', price: 9999, image: 'food-2.jpg' },
+            { name: 'Friday Special: Pasta Stir-Fry', description: 'Special pasta stir-fry', price: 5499, image: 'food-3.jpg' },
+            { name: 'Saturday Special: Fisherman Soup', description: 'Rich fisherman soup with assorted seafood', price: 14999, image: 'food-1.jpg' },
+            { name: 'Saturday Special: Ekpang Nkukwo', description: 'Traditional cocoyam dish', price: 8499, image: 'food-2.jpg' },
+            { name: 'Weekend Bonus: White Soup (Fri & Sat)', description: 'Special white soup available Friday and Saturday', price: 8500, image: 'food-3.jpg' }
         ]
+    }
+};
+
+// Daily Specials Configuration
+const dailySpecials = {
+    0: { // Sunday
+        name: "Sunday Family Feast",
+        items: [
+            { name: 'Sunday Special Jollof Rice', description: 'Extra rich jollof rice with assorted meat', price: 4500, image: 'food-1.jpg' },
+            { name: 'Sunday Egusi Soup', description: 'Special egusi soup with extra meat and fish', price: 5000, image: 'food-2.jpg' }
+        ],
+        discount: 10,
+        tagline: "Perfect for family Sunday dinner"
+    },
+    1: { // Monday
+        name: "Monday Motivation Meals",
+        items: [
+            { name: 'Office Combo Pack', description: 'Rice + Protein + Plantain + Water/Drink', price: 2500, image: 'food-3.jpg' },
+            { name: 'White Rice & Stew Special', description: 'White rice with rich stew and double protein', price: 4000, image: 'food-1.jpg' }
+        ],
+        discount: 15,
+        tagline: "Start your week right with our special deals"
+    },
+    2: { // Tuesday
+        name: "Traditional Tuesday",
+        items: [
+            { name: 'Buka Combo', description: 'Rice, beans, stew, plantain with beef', price: 5500, image: 'food-2.jpg' },
+            { name: 'Pounded Yam & Egusi', description: 'Fresh pounded yam with egusi soup', price: 6000, image: 'food-3.jpg' }
+        ],
+        discount: 12,
+        tagline: "Authentic traditional flavours"
+    },
+    3: { // Wednesday
+        name: "Grill Wednesday",
+        items: [
+            { name: 'Bole & Fish Combo', description: '2 Plantain and full fish', price: 7999, image: 'food-1.jpg' },
+            { name: 'Grilled Chicken Special', description: 'Jumbo grilled chicken with spicy sauce', price: 3000, image: 'food-2.jpg' }
+        ],
+        discount: 20,
+        tagline: "Midweek grill specials"
+    },
+    4: { // Thursday
+        name: "Throwback Thursday",
+        items: [
+            { name: 'Asun Rice', description: 'Spicy grilled goat meat with seasoned rice', price: 4000, image: 'food-3.jpg' },
+            { name: 'Pepper Soup Combo', description: 'Assorted pepper soup with swallow', price: 6000, image: 'food-1.jpg' }
+        ],
+        discount: 10,
+        tagline: "Classic favourites with a twist"
+    },
+    5: { // Friday
+        name: "Friday Seafood Festival",
+        items: [
+            { name: 'SeaFood Rice', description: 'Creamy Coconut Rice with assorted seafood', price: 8999, image: 'food-2.jpg' },
+            { name: 'Fisherman Soup', description: 'Rich fisherman soup with assorted seafood', price: 12999, image: 'food-3.jpg' }
+        ],
+        discount: 15,
+        tagline: "Fresh seafood delights"
+    },
+    6: { // Saturday
+        name: "Saturday Specials",
+        items: [
+            { name: 'Ekpang Nkukwo', description: 'Traditional cocoyam dish', price: 7499, image: 'food-1.jpg' },
+            { name: 'Family Sharing Pack', description: 'Large Rice + 6 Proteins + Plantain', price: 8500, image: 'food-2.jpg' }
+        ],
+        discount: 18,
+        tagline: "Weekend family treats"
     }
 };
 
@@ -127,8 +198,60 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Initialize the menu system
 function initMenu() {
+    loadDailySpecials();
     loadMenuCategories();
-    loadMenuItems('rice-meals'); // Load first category by default
+    loadMenuItems('specials'); // Load specials first by default
+}
+
+// Load today's specials
+function loadDailySpecials() {
+    const today = new Date().getDay(); // 0 = Sunday, 6 = Saturday
+    const todaySpecial = dailySpecials[today];
+    
+    if (todaySpecial) {
+        // Update the specials category name
+        const specialsCategory = menuData.categories.find(cat => cat.id === 'specials');
+        if (specialsCategory) {
+            specialsCategory.name = `Today's Special - ${todaySpecial.name}`;
+            specialsCategory.description = `${todaySpecial.tagline} • ${todaySpecial.discount}% OFF!`;
+        }
+        
+        // Update specials items
+        menuData.items.specials = todaySpecial.items.map(item => ({
+            ...item,
+            originalPrice: item.price,
+            price: Math.round(item.price * (1 - todaySpecial.discount / 100))
+        }));
+        
+        // Update specials banner in the hero section
+        updateSpecialsBanner(todaySpecial);
+    }
+}
+
+// Update specials banner in the hero
+function updateSpecialsBanner(special) {
+    const heroSection = document.querySelector('.menu-hero');
+    if (heroSection) {
+        const existingBanner = heroSection.querySelector('.specials-banner');
+        if (existingBanner) {
+            existingBanner.remove();
+        }
+        
+        const banner = document.createElement('div');
+        banner.className = 'specials-banner';
+        banner.innerHTML = `
+            <div class="specials-content">
+                <div class="specials-badge">🔥 TODAY'S SPECIAL</div>
+                <h3>${special.name}</h3>
+                <p>${special.tagline} • <strong>${special.discount}% OFF</strong> on selected items!</p>
+            </div>
+        `;
+        
+        const container = heroSection.querySelector('.container');
+        if (container) {
+            container.appendChild(banner);
+        }
+    }
 }
 
 // Load menu categories into tabs
@@ -147,7 +270,10 @@ function loadMenuCategories() {
     menuData.categories.forEach(category => {
         const tab = document.createElement('button');
         tab.className = 'category-tab';
-        tab.textContent = category.name;
+        tab.innerHTML = `
+            <span class="tab-name">${category.name}</span>
+            ${category.id === 'specials' ? '<span class="special-indicator">🔥</span>' : ''}
+        `;
         tab.setAttribute('data-category', category.id);
         
         // Add click event
@@ -212,12 +338,14 @@ function loadMenuItems(categoryId) {
 // Create a single menu item element
 function createMenuItem(item, categoryId, index) {
     const menuItem = document.createElement('div');
+    const isSpecial = categoryId === 'specials';
     const isCombo = categoryId === 'combos';
-    const isPopular = index < 2;
+    const isPopular = index < 2 && !isSpecial;
     const isWeekend = categoryId === 'weekend';
     
     // Base classes
     let itemClass = 'menu-item';
+    if (isSpecial) itemClass += ' special-item';
     if (isCombo) itemClass += ' combo-item';
     if (isPopular) itemClass += ' popular-item';
     if (isWeekend) itemClass += ' weekend-special';
@@ -227,10 +355,16 @@ function createMenuItem(item, categoryId, index) {
     // Build HTML content
     let html = `
         <div class="item-image">
-            <div class="placeholder-image">${getItemInitials(item.name)}</div>
+            <img src="images/placeholder/${item.image || 'food-1.jpg'}" alt="${item.name}" class="item-img" onerror="this.src='images/placeholder/food-1.jpg'">
     `;
     
     // Add badges
+    if (isSpecial) {
+        html += '<div class="special-badge">🔥 Today\'s Special</div>';
+        if (item.originalPrice) {
+            html += `<div class="discount-badge">${calculateDiscount(item.originalPrice, item.price)}% OFF</div>`;
+        }
+    }
     if (isPopular) {
         html += '<div class="popular-badge">🔥 Popular</div>';
     }
@@ -243,7 +377,11 @@ function createMenuItem(item, categoryId, index) {
         <div class="item-content">
             <div class="item-header">
                 <h3>${formatItemName(item.name)}</h3>
-                <div class="item-price">₦${item.price.toLocaleString()}</div>
+                <div class="item-price">
+                    ${isSpecial && item.originalPrice ? 
+                        `<span class="original-price">₦${item.originalPrice.toLocaleString()}</span>` : ''}
+                    <span class="current-price">₦${item.price.toLocaleString()}</span>
+                </div>
             </div>
     `;
     
@@ -278,6 +416,11 @@ function createMenuItem(item, categoryId, index) {
     
     menuItem.innerHTML = html;
     return menuItem;
+}
+
+// Calculate discount percentage
+function calculateDiscount(original, discounted) {
+    return Math.round(((original - discounted) / original) * 100);
 }
 
 // Helper function to get initials for placeholder
@@ -428,19 +571,45 @@ function handleScroll() {
     }
 }
 
-// QR Code Menu Generation
-function generateQRCodeMenu() {
+// QR Code Generation Functions
+function generateQRCode() {
+    const qrContainer = document.getElementById('qrCode');
+    const downloadBtn = document.getElementById('downloadBtn');
     const currentUrl = window.location.href;
     
-    // Simple implementation - in production, use a QR code library
-    showNotification('QR Menu URL: ' + currentUrl + '\nShare this link for QR menu access!');
+    // Clear previous QR code
+    qrContainer.innerHTML = '';
     
-    // For a real implementation, you would:
-    // 1. Use a QR code generation library like QRCode.js
-    // 2. Display the QR code in a modal
-    // 3. Allow downloading/printing
+    // Generate new QR code
+    const qrcode = new QRCode(qrContainer, {
+        text: currentUrl,
+        width: 200,
+        height: 200,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+    });
+    
+    // Show download button
+    downloadBtn.style.display = 'inline-block';
+    
+    showNotification('QR Code generated! Scan to view menu on mobile.');
+}
+
+function downloadQRCode() {
+    const qrContainer = document.getElementById('qrCode');
+    const canvas = qrContainer.querySelector('canvas');
+    
+    if (canvas) {
+        const link = document.createElement('a');
+        link.download = 'fiye-foods-menu-qr.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+        showNotification('QR Code downloaded successfully!');
+    }
 }
 
 // Make functions globally available
-window.generateQRCodeMenu = generateQRCodeMenu;
+window.generateQRCode = generateQRCode;
+window.downloadQRCode = downloadQRCode;
 window.loadMenuItems = loadMenuItems;

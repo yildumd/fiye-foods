@@ -8,6 +8,701 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Enhanced Black & Green Color Scheme */
+        :root {
+            --primary-green: #27ae60;
+            --dark-green: #219653;
+            --light-green: #6fcf97;
+            --black: #1a1a1a;
+            --dark-gray: #333333;
+            --medium-gray: #666666;
+            --light-gray: #f8f8f8;
+            --white: #ffffff;
+            --accent: #f2994a;
+        }
+        
+        /* Enhanced Header */
+        .header {
+            background: var(--black);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .logo-text {
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .nav-menu a {
+            color: var(--white);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--primary-green);
+        }
+        
+        .btn-primary {
+            background: var(--primary-green);
+            border-color: var(--primary-green);
+            color: var(--white);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: var(--dark-green);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+        }
+        
+        /* Enhanced Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--black) 0%, var(--dark-gray) 100%);
+            color: var(--white);
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url('images/gallery/rice/fiye-party-jollof.jpg') no-repeat center center;
+            background-size: cover;
+            opacity: 0.7;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-badge {
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+        
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn-whatsapp {
+            background: #25D366;
+            border-color: #25D366;
+            color: var(--white);
+        }
+        
+        .btn-secondary {
+            background: var(--dark-gray);
+            border-color: var(--dark-gray);
+            color: var(--white);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border-color: var(--white);
+            color: var(--white);
+        }
+        
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+        
+        .btn-large {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .hero-highlights {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .highlight-item i {
+            background: var(--primary-green);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .hero-image {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .food-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .food-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .food-image {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .food-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .food-card:hover .food-img {
+            transform: scale(1.05);
+        }
+        
+        .featured-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--accent);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .food-content {
+            padding: 1.5rem;
+        }
+        
+        .food-content h3 {
+            color: var(--medium-gray);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .food-content h4 {
+            color: var(--black);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .food-content p {
+            color: var(--medium-gray);
+            margin-bottom: 1.5rem;
+        }
+        
+        .food-price {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .original-price {
+            color: var(--medium-gray);
+            text-decoration: line-through;
+            font-size: 1.1rem;
+        }
+        
+        .current-price {
+            color: var(--primary-green);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .btn-full {
+            width: 100%;
+            text-align: center;
+            justify-content: center;
+        }
+        
+        /* Enhanced Sections */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--medium-gray);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+        
+        /* Delivery Notice */
+        .delivery-notice {
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 2rem 0;
+        }
+        
+        .notice-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .notice-content i {
+            font-size: 2rem;
+        }
+        
+        /* Specials Grid */
+        .specials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .special-item {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .special-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .special-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .special-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .special-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--accent);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+        
+        .discount-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+        
+        .special-content {
+            padding: 1.5rem;
+        }
+        
+        .special-content h3 {
+            color: var(--black);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .special-content p {
+            color: var(--medium-gray);
+            margin-bottom: 1rem;
+        }
+        
+        .special-price {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .btn-small {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Categories Grid */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .category-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary-green);
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .category-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--light-green);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+        }
+        
+        .category-card h3 {
+            color: var(--black);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .category-card p {
+            color: var(--medium-gray);
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Delivery Info */
+        .delivery-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .delivery-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .delivery-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .delivery-card i {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+        
+        .delivery-card h3 {
+            color: var(--black);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .delivery-card p {
+            color: var(--medium-gray);
+            margin-bottom: 0.5rem;
+        }
+        
+        .delivery-card .highlight {
+            color: var(--primary-green);
+            font-weight: 600;
+        }
+        
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-item {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .rating {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-content p {
+            color: var(--dark-gray);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-author .author-name {
+            color: var(--black);
+            font-weight: 600;
+        }
+        
+        .testimonial-author .author-location {
+            color: var(--medium-gray);
+            font-size: 0.9rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--black) 0%, var(--dark-gray) 100%);
+            color: var(--white);
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .cta-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-section h3,
+        .footer-section h4 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-section p {
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
+        }
+        
+        .footer-section ul li i {
+            margin-right: 0.5rem;
+            color: var(--primary-green);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--dark-gray);
+            color: var(--white);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary-green);
+            transform: translateY(-3px);
+        }
+        
+        .qr-placeholder {
+            text-align: center;
+        }
+        
+        .qr-code-small {
+            width: 100px;
+            height: 100px;
+            background: var(--dark-gray);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+            color: var(--primary-green);
+        }
+        
+        .qr-note {
+            font-size: 0.9rem;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid var(--dark-gray);
+            padding-top: 2rem;
+            text-align: center;
+            opacity: 0.7;
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-order-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-order-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero::before {
+                width: 100%;
+                opacity: 0.3;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-highlights {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero-actions {
+                flex-direction: column;
+            }
+            
+            .cta-actions {
+                flex-direction: column;
+            }
+            
+            .notice-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-highlights {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -15,7 +710,7 @@
         <div class="container">
             <nav class="nav">
                 <a href="index.html" class="logo">
-                    <div class="logo-img"></div>
+                    <img src="images/logo.png" alt="Fiye Foods Logo" class="logo-img">
                     <span class="logo-text">Fiye Foods</span>
                 </a>
                 <ul class="nav-menu">
@@ -43,49 +738,95 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
+                <div class="hero-badge">🔥 TODAY'S SPECIAL</div>
                 <h1 class="hero-title">Authentic Flavours of Abuja</h1>
                 <p class="hero-subtitle">Premium Nigerian cuisine crafted with passion and delivered fresh to your door</p>
+                
+                <!-- Dynamic Hero Special -->
+                <div class="hero-special" id="hero-special">
+                    <div class="special-highlight">
+                        <h3 id="daily-special-name">Fiye Party Jollof</h3>
+                        <p id="daily-special-tagline">Freshly prepared with the finest ingredients</p>
+                        <div class="special-price" id="daily-special-price">
+                            <span class="discount-badge">15% OFF</span>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="hero-actions">
-                    <a href="https://wa.me/2348123456789" class="btn btn-whatsapp">
+                    <a href="https://wa.me/2348057266953" class="btn btn-whatsapp btn-large">
                         <i class="fab fa-whatsapp"></i> Order on WhatsApp
                     </a>
-                    <a href="tel:+2348123456789" class="btn btn-secondary">
+                    <a href="tel:+2348057266953" class="btn btn-secondary btn-large">
                         <i class="fas fa-phone"></i> Call to Order
                     </a>
-                    <a href="menu.html" class="btn btn-outline">
-                        <i class="fas fa-qrcode"></i> QR Menu
+                    <a href="menu.html" class="btn btn-outline btn-large">
+                        <i class="fas fa-utensils"></i> View Full Menu
                     </a>
                 </div>
+                
                 <div class="hero-highlights">
                     <div class="highlight-item">
                         <i class="fas fa-shipping-fast"></i>
-                        <span>Fast Delivery</span>
+                        <div>
+                            <strong>Fast Delivery</strong>
+                            <span>Across Abuja</span>
+                        </div>
                     </div>
                     <div class="highlight-item">
                         <i class="fas fa-star"></i>
-                        <span>Premium Taste</span>
+                        <div>
+                            <strong>Premium Taste</strong>
+                            <span>100% Fresh Ingredients</span>
+                        </div>
                     </div>
                     <div class="highlight-item">
                         <i class="fas fa-utensils"></i>
-                        <span>Daily Meals</span>
+                        <div>
+                            <strong>Daily Specials</strong>
+                            <span>New offers every day</span>
+                        </div>
                     </div>
                     <div class="highlight-item">
                         <i class="fas fa-calendar-week"></i>
-                        <span>Weekend Specials</span>
+                        <div>
+                            <strong>Weekend Specials</strong>
+                            <span>Exclusive weekend menu</span>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="hero-image">
-                <div class="food-card">
+                <div class="food-card featured">
                     <div class="food-image">
-                        <div class="placeholder-image"></div>
+                        <img src="images/gallery/rice/fiye-party-jollof.jpg" alt="Fiye Party Jollof" class="food-img">
+                        <div class="featured-badge">🔥 Today's Pick</div>
                     </div>
                     <div class="food-content">
-                        <h3>Today's Special</h3>
-                        <h4>Fiye Party Jollof</h4>
-                        <p>Our signature smoky jollof rice with chicken and plantain</p>
-                        <div class="food-price">₦3,500</div>
+                        <h3>Chef's Recommendation</h3>
+                        <h4 id="featured-item-name">Fiye Party Jollof</h4>
+                        <p id="featured-item-desc">Our signature smoky jollof rice with chicken and plantain</p>
+                        <div class="food-price">
+                            <span class="original-price" id="featured-original-price">₦4,000</span>
+                            <span class="current-price" id="featured-current-price">₦3,500</span>
+                        </div>
+                        <a href="order.html" class="btn btn-primary btn-full">
+                            <i class="fas fa-shopping-cart"></i> Order Now
+                        </a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Daily Specials Banner -->
+    <section class="delivery-notice">
+        <div class="container">
+            <div class="notice-content">
+                <i class="fas fa-fire"></i>
+                <div class="notice-text">
+                    <h3 id="daily-special-title">Today's Special: Fiye Party Jollof</h3>
+                    <p id="daily-special-desc">Enjoy our signature dish with 15% OFF today only!</p>
                 </div>
             </div>
         </div>
@@ -94,9 +835,150 @@
     <!-- Today's Specials -->
     <section class="specials">
         <div class="container">
-            <h2 class="section-title">Today's Specials</h2>
+            <h2 class="section-title">Today's Special Offers</h2>
+            <p class="section-subtitle">Freshly prepared dishes with exclusive discounts available today only</p>
             <div class="specials-grid" id="specials-container">
-                <!-- Dynamic content will be loaded here -->
+                <!-- Special Item 1 -->
+                <div class="special-item">
+                    <div class="special-image">
+                        <img src="images/gallery/rice/basmati-stir-fried-rice.jpg" alt="Basmati Stir Fried Rice" class="special-img">
+                        <div class="special-badge">🔥 Today's Special</div>
+                        <div class="discount-badge">10% OFF</div>
+                    </div>
+                    <div class="special-content">
+                        <h3>Basmati Stir Fried Rice</h3>
+                        <p>Special fried rice with shrimp, chicken and vegetables</p>
+                        <div class="special-price">
+                            <span class="original-price">₦5,000</span>
+                            <span class="current-price">₦4,500</span>
+                        </div>
+                        <a href="https://wa.me/2348057266953?text=I%20would%20like%20to%20order%20Basmati%20Stir%20Fried%20Rice" 
+                           class="btn btn-primary btn-small">
+                            <i class="fab fa-whatsapp"></i> Order Now
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Special Item 2 -->
+                <div class="special-item">
+                    <div class="special-image">
+                        <img src="images/gallery/proteins/grilled-chicken.jpg" alt="Grilled Chicken" class="special-img">
+                        <div class="special-badge">🔥 Today's Special</div>
+                        <div class="discount-badge">15% OFF</div>
+                    </div>
+                    <div class="special-content">
+                        <h3>Grilled Chicken</h3>
+                        <p>Perfectly grilled chicken with special Fiye spices</p>
+                        <div class="special-price">
+                            <span class="original-price">₦3,000</span>
+                            <span class="current-price">₦2,500</span>
+                        </div>
+                        <a href="https://wa.me/2348057266953?text=I%20would%20like%20to%20order%20Grilled%20Chicken" 
+                           class="btn btn-primary btn-small">
+                            <i class="fab fa-whatsapp"></i> Order Now
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Special Item 3 -->
+                <div class="special-item">
+                    <div class="special-image">
+                        <img src="images/gallery/soups/egusi-soup.jpg" alt="Egusi Soup" class="special-img">
+                        <div class="special-badge">🔥 Today's Special</div>
+                        <div class="discount-badge">12% OFF</div>
+                    </div>
+                    <div class="special-content">
+                        <h3>Egusi Soup</h3>
+                        <p>Traditional egusi soup with assorted meat and fish</p>
+                        <div class="special-price">
+                            <span class="original-price">₦3,400</span>
+                            <span class="current-price">₦3,000</span>
+                        </div>
+                        <a href="https://wa.me/2348057266953?text=I%20would%20like%20to%20order%20Egusi%20Soup" 
+                           class="btn btn-primary btn-small">
+                            <i class="fab fa-whatsapp"></i> Order Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="section-cta">
+                <a href="menu.html" class="btn btn-outline">
+                    <i class="fas fa-qrcode"></i> View Full QR Menu
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Categories -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Our Popular Categories</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Rice Meals</h3>
+                    <p>Signature jollof, fried rice, and traditional rice dishes</p>
+                    <a href="menu.html#rice-meals" class="btn btn-outline btn-small">View Items</a>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-drumstick-bite"></i>
+                    </div>
+                    <h3>Proteins</h3>
+                    <p>Beef, chicken, turkey, fish, and assorted meat options</p>
+                    <a href="menu.html#proteins" class="btn btn-outline btn-small">View Items</a>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-bowl-food"></i>
+                    </div>
+                    <h3>Soups & Swallows</h3>
+                    <p>Traditional Nigerian soups with various swallow options</p>
+                    <a href="menu.html#soups" class="btn btn-outline btn-small">View Items</a>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>Wednesday Grills</h3>
+                    <p>Special grilled items available every Wednesday</p>
+                    <a href="menu.html#grills" class="btn btn-outline btn-small">View Items</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Delivery Info -->
+    <section class="specials">
+        <div class="container">
+            <h2 class="section-title">Fast & Reliable Delivery</h2>
+            <div class="delivery-info-grid">
+                <div class="delivery-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Delivery Hours</h3>
+                    <p>Monday - Sunday: 8AM - 10PM</p>
+                    <p class="highlight">Order before 3PM for same-day delivery</p>
+                </div>
+                <div class="delivery-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Delivery Areas</h3>
+                    <p>Covering all major areas in Abuja</p>
+                    <p class="highlight">Garki, Wuse, Maitama, Asokoro & more</p>
+                </div>
+                <div class="delivery-card">
+                    <i class="fas fa-truck"></i>
+                    <h3>Minimum Order</h3>
+                    <p>₦2,500 minimum order</p>
+                    <p class="highlight">Free delivery on orders above ₦5,000</p>
+                </div>
+                <div class="delivery-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>Easy Ordering</h3>
+                    <p>Call, WhatsApp, or use our online form</p>
+                    <p class="highlight">+234 805 726 6953</p>
+                </div>
             </div>
         </div>
     </section>
@@ -108,7 +990,14 @@
             <div class="testimonials-grid">
                 <div class="testimonial-item">
                     <div class="testimonial-content">
-                        <p>"The best jollof rice in Abuja! Fiye Foods never disappoints."</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"The best jollof rice in Abuja! Fiye Foods never disappoints. Their delivery is always prompt and food is consistently fresh."</p>
                     </div>
                     <div class="testimonial-author">
                         <div class="author-name">Chinedu O.</div>
@@ -117,7 +1006,14 @@
                 </div>
                 <div class="testimonial-item">
                     <div class="testimonial-content">
-                        <p>"Their delivery is always on time and food is consistently fresh."</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Their bole and fish is to die for! Authentic Abuja flavour that takes me back home. The Wednesday specials are amazing!"</p>
                     </div>
                     <div class="testimonial-author">
                         <div class="author-name">Amina S.</div>
@@ -126,12 +1022,40 @@
                 </div>
                 <div class="testimonial-item">
                     <div class="testimonial-content">
-                        <p>"The bole and fish is to die for! Authentic Abuja flavour."</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"As a busy professional, Fiye Foods has been a lifesaver. The office combo pack is perfect for lunch and their soups are heavenly."</p>
                     </div>
                     <div class="testimonial-author">
                         <div class="author-name">Tunde M.</div>
                         <div class="author-location">Garki</div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Experience Fiye Foods?</h2>
+                <p>Place your order now and enjoy authentic Abuja flavours delivered to your door</p>
+                <div class="cta-actions">
+                    <a href="https://wa.me/2348057266953" class="btn btn-whatsapp btn-large">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Order
+                    </a>
+                    <a href="tel:+2348057266953" class="btn btn-secondary btn-large">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                    <a href="order.html" class="btn btn-outline btn-large">
+                        <i class="fas fa-shopping-cart"></i> Online Order
+                    </a>
                 </div>
             </div>
         </div>
@@ -156,31 +1080,62 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="menu.html">Menu</a></li>
                         <li><a href="about.html">About</a></li>
-                        <li><a href="order.html">Order Online</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Contact</h4>
                     <ul>
-                        <li><i class="fas fa-phone"></i> +234 812 345 6789</li>
+                        <li><i class="fas fa-phone"></i> +234 805 726 6953</li>
                         <li><i class="fas fa-envelope"></i> hello@fiye-foods.com</li>
                         <li><i class="fas fa-map-marker-alt"></i> Abuja, Nigeria</li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>QR Menu</h4>
-                    <p>Scan to view our menu</p>
+                    <p>Scan to view our digital menu</p>
                     <div class="qr-placeholder">
-                        <div class="qr-code"></div>
+                        <div class="qr-code-small">
+                            <i class="fas fa-qrcode"></i>
+                        </div>
+                        <p class="qr-note">Visit menu page to generate QR</p>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Fiye Foods. All rights reserved.</p>
+                <p>&copy; 2024 Fiye Foods. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/2348057266953?text=Hello%20Fiye%20Foods!%20I%20would%20like%20to%20place%20an%20order%20from%20your%20menu." 
+       class="whatsapp-order-btn" 
+       target="_blank"
+       title="Order via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <script src="js/script.js"></script>
+    <script src="js/menu.js"></script>
+    <script>
+        // Home page specific functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update featured item with actual gallery data
+            updateFeaturedItem();
+        });
+
+        function updateFeaturedItem() {
+            // Update featured item in hero
+            document.getElementById('featured-item-name').textContent = 'Fiye Party Jollof';
+            document.getElementById('featured-item-desc').textContent = 'Our signature smoky jollof rice with chicken and plantain';
+            document.getElementById('featured-original-price').textContent = '₦4,000';
+            document.getElementById('featured-current-price').textContent = '₦3,500';
+            
+            // Update daily special banner
+            document.getElementById('daily-special-title').textContent = 'Today\'s Special: Fiye Party Jollof';
+            document.getElementById('daily-special-desc').textContent = 'Enjoy our signature dish with 15% OFF today only!';
+        }
+    </script>
 </body>
 </html>

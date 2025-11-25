@@ -14,7 +14,7 @@
         <div class="container">
             <nav class="nav">
                 <a href="index.html" class="logo">
-                    <div class="logo-img"></div>
+                    <img src="images/logo.png" alt="Fiye Foods Logo" class="logo-img">
                     <span class="logo-text">Fiye Foods</span>
                 </a>
                 <ul class="nav-menu">
@@ -44,16 +44,35 @@
             <h1>Our Premium Menu</h1>
             <p>Authentic Abuja flavours crafted with the finest ingredients</p>
             
-            <!-- Delivery Banner -->
-            <div class="delivery-banner">
-                <h3>🚚 Fast Delivery Across Abuja</h3>
-                <p>Order before 3PM for same-day delivery • Minimum order: ₦2,500</p>
+            <!-- QR Code Section -->
+            <div class="qr-section">
+                <div class="qr-container">
+                    <div class="qr-code-display">
+                        <div id="qrCode"></div>
+                        <p class="qr-instruction">Scan to view menu on your phone</p>
+                    </div>
+                    <div class="qr-actions">
+                        <button onclick="generateQRCode()" class="btn btn-primary">
+                            <i class="fas fa-qrcode"></i> Generate QR Code
+                        </button>
+                        <button onclick="downloadQRCode()" class="btn btn-outline" id="downloadBtn" style="display: none;">
+                            <i class="fas fa-download"></i> Download QR
+                        </button>
+                    </div>
+                </div>
             </div>
-            
-            <div class="qr-action">
-                <button onclick="generateQRCodeMenu()" class="btn btn-outline">
-                    <i class="fas fa-qrcode"></i> Generate QR Menu
-                </button>
+        </div>
+    </section>
+
+    <!-- Delivery Notice -->
+    <section class="delivery-notice">
+        <div class="container">
+            <div class="notice-content">
+                <i class="fas fa-shipping-fast"></i>
+                <div class="notice-text">
+                    <h3>🚚 Fast Delivery Across Abuja</h3>
+                    <p>Order before 3PM for same-day delivery • Minimum order: ₦2,500</p>
+                </div>
             </div>
         </div>
     </section>
@@ -71,22 +90,27 @@
         </div>
     </section>
 
-    <!-- Sticky Order Bar -->
-    <div class="sticky-order-bar">
+    <!-- Order CTA Section -->
+    <section class="order-cta">
         <div class="container">
-            <div class="order-info">
-                <span>Ready to order?</span>
-                <div class="order-actions">
-                    <a href="https://wa.me/2348123456789" class="btn btn-whatsapp btn-small">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
+            <div class="cta-content">
+                <h2>Ready to Place Your Order?</h2>
+                <p>Choose your preferred method to order from Fiye Foods</p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/2348057266953?text=Hello%20Fiye%20Foods!%20I%20would%20like%20to%20place%20an%20order%20from%20your%20menu." 
+                       class="btn btn-whatsapp btn-large" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Order via WhatsApp
                     </a>
-                    <a href="tel:+2348123456789" class="btn btn-primary btn-small">
-                        <i class="fas fa-phone"></i> Call
+                    <a href="tel:+2348057266953" class="btn btn-primary btn-large">
+                        <i class="fas fa-phone"></i> Call to Order
+                    </a>
+                    <a href="order.html" class="btn btn-outline btn-large">
+                        <i class="fas fa-shopping-cart"></i> Online Order Form
                     </a>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -120,14 +144,15 @@
                 </div>
                 <div class="footer-section">
                     <h4>QR Menu</h4>
-                    <p>Scan to view our menu</p>
-                    <div class="qr-placeholder">
-                        <div class="qr-code"></div>
+                    <p>Scan to view our digital menu</p>
+                    <div class="qr-placeholder" id="footerQR">
+                        <div class="qr-code-small"></div>
+                        <p class="qr-note">Generate QR above</p>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Fiye Foods. All rights reserved.</p>
+                <p>&copy; 2024 Fiye Foods. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -140,6 +165,8 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/menu.js"></script>
 </body>
